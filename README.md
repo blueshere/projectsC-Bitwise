@@ -1,28 +1,49 @@
-# Check if a Number is Even or Odd using Bitwise AND
+# C Programming: Bitwise Operations Projects
 
-This C program demonstrates a highly efficient method to determine if an integer is even or odd using bitwise operations.
+This repository contains small C projects designed to demonstrate the power and efficiency of bitwise operations. These examples are perfect for anyone preparing for technical interviews or looking to understand low-level optimizations in C.
 
 ---
 
-## Core Concept
+## Projects Included
 
-The logic relies on checking the **Least Significant Bit (LSB)** of a number's binary representation.
+### 1. Check if a Number is Even or Odd
 
-* For any **even** number, the LSB is always **0**. (e.g., 10 is `101**0**` in binary)
-* For any **odd** number, the LSB is always **1**. (e.g., 7 is `011**1**` in binary)
+* **File:** `isEvenOrOdd.c`
+* **Concept:** This program uses the bitwise **AND (`&`)** operator to determine if a number is even or odd.
+* **Logic:** A number is odd if its least significant bit (LSB) is 1, and even if it's 0. By performing a bitwise AND with 1 (`number & 1`), we can isolate the LSB. If the result is 1, the number is odd; otherwise, it's even. This method is often faster than using the modulo operator (`%`).
 
-Instead of using the computationally slower modulo operator (`%`), this program uses the bitwise **AND (`&`)** operator. By performing `number & 1`, we effectively isolate the LSB. If the result is `0`, the number is even; otherwise, it is odd.
+### 2. Swap Two Numbers using XOR
+
+* **File:** `swapWithXOR.c`
+* **Concept:** This program swaps the values of two integer variables without using a third temporary variable. It relies on the properties of the bitwise **XOR (`^`)** operator.
+* **Logic:** The XOR swap algorithm uses a three-step process based on the following properties of XOR:
+    1.  `x ^ x = 0`
+    2.  `x ^ 0 = x`
+    3.  `x ^ y = y ^ x` (Commutative)
+    4.  `(x ^ y) ^ y = x` (The core of the trick)
+* This is a classic interview question that tests your understanding of bitwise operations.
 
 ---
 
 ## How to Compile and Run
 
-1.  **Compile the program using GCC:**
-    ```bash
-    gcc isEvenOrOdd.c -o isEvenOrOdd
-    ```
+You can compile and run these files using any standard C compiler like GCC.
 
-2.  **Run the executable:**
+1.  **Open your terminal or command prompt.**
+2.  **Navigate to the directory where you cloned the repository.**
+3.  **Compile the desired file:**
     ```bash
+    # To compile the Even/Odd checker
+    gcc isEvenOrOdd.c -o isEvenOrOdd
+
+    # To compile the XOR swap program
+    gcc swapWithXOR.c -o swapWithXOR
+    ```
+4.  **Run the executable:**
+    ```bash
+    # To run the Even/Odd checker
     ./isEvenOrOdd
+
+    # To run the XOR swap program
+    ./swapWithXOR
     ```
